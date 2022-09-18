@@ -1,17 +1,24 @@
 #!/usr/bin/python3
-from math import sqrt
+from math import ceil, sqrt
 from sys import argv
 
-with open(argv[1]) as f:
-	data = f.read()
+try:
+	with open(argv[1]) as f:
+		data = f.read()
+except (FileNotFoundError,):
+    exit(0)
 m = int(data)
-n = int(sqrt(m))
+n = ceil(sqrt(m))
+l = 0.6
+if m < 1000:
+    l = 0.7
+k = ceil(m**l)
 
 if n % 2 == 0:
 	n -= 1
-for i in range(n, int(m**0.6), 2):
+for i in range(n, k, 2):
 	c = m // i
-	if c % 5 == 0 or ((c - 1) % 6 != 0 and (c+1) % 6 != 0) or c < 100:
+	if c != 2 and (c % 5 == 0 or ((c - 1) % 6 != 0 and (c+1) % 6 != 0)):
 		continue
 	print(f"{m}={i}*{c}")
 	break
