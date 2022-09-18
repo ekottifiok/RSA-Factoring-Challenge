@@ -74,7 +74,7 @@ int initialize(all_info *holder, char const *file)
 	if (!holder)
 		return (1);
 
-	holder->file_name = "/home/ifiokekott/VSCode/ALX/RSA-Factoring-Challenge/tests/test00";
+	holder->file_name = file;
 	return (0);
 }
 
@@ -89,11 +89,11 @@ int main(int argc, char const *argv[])
 {
 	all_info data = INFO_INIT;
 
-	// if (argc != 2 && strcmp(*argv, "factors"))
-	// {
-	// 	printf("USAGE: factor file\n");
-	// 	exit(EXIT_FAILURE);
-	// }
+	if (argc != 2 && strcmp(*argv, "factors"))
+	{
+		printf("USAGE: factor file\n");
+		exit(EXIT_FAILURE);
+	}
 
 	if (initialize(&data, argv[1]))
 		return (1);
