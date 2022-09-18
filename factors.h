@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#if __STDC_VERSION__>=199901L
+#if __STDC_VERSION__ >= 199901L
 #include <inttypes.h>
 #else
 #define PRIu16 "hu"
@@ -16,11 +16,6 @@
 #define INT_TO_STR(val) (val + 48)
 #define LONG_MAX (9223372036854775807)
 #define LONG_WIDTH 18
-
-typedef struct _unums {
-    size_t size;
-    uint16_t *nums;//array 
-} UNums;
 
 /**
  * struct user_input_s - linked list of the user inputs
@@ -49,9 +44,9 @@ typedef struct info_s
 	char const *file_name;
 } all_info;
 
-#define INFO_INIT \
-	{             \
-		NULL      \
+#define INFO_INIT 			\
+	{							\
+		NULL, NULL			\
 	}
 
 int execute_command(all_info *info);
@@ -66,6 +61,5 @@ char *_strcpy(char *dest, char *src);
 int _strncmp(char *s1, char *s2, int len);
 char *copy_string_index(char *, unsigned int, char *);
 char *remove_whitespace(char *string);
-
 
 #endif
