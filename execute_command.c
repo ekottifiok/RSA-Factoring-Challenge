@@ -8,16 +8,14 @@
  */
 int execute_command(all_info *info)
 {
-	unsigned int iter, iter2, iter3, string_len, prime, remainder, character;
-	int buffer_len, result_str;
-	long *result;
+	unsigned int iter, iter2, iter3, prime, remainder, character;
+	int result_str;
 	user_input_t *user_command = info->input;
 	char *buffer, *holder;
 
 	for (iter = 0; user_command; iter++, user_command = user_command->next)
 	{
 		buffer = user_command->command;
-		string_len = strlen(buffer);
 		for (prime = 2; 1;prime++)
 		{
 			holder = malloc(sizeof(char) *2);
